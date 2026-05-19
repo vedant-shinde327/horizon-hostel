@@ -1,0 +1,44 @@
+.navbar {
+    height: 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 0 80px;
+
+    background: rgba(255,255,255,0.95);
+
+    border-bottom: 1px solid var(--border);
+
+    position: sticky;
+    top: 0;
+
+    backdrop-filter: blur(10px);
+
+    z-index: 1000;
+}
+.nav-logo {
+    font-weight: 700;
+    font-size: 28px;
+
+    color: var(--bark-blue);
+
+    letter-spacing: 0.5px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 2.9rem;
+}
+.nav-links a {
+    
+    position: relative;
+
+    font-size: 1rem;
+    font-weight: 500;
+
+    color: var(--text-gray);
+}
+.nav-links a:hover {
+    color: var(--primary-blue);
+}
