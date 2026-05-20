@@ -1,0 +1,163 @@
+.hero {
+    padding: 100px 5%;
+     background:#e9f3fa;
+}
+
+.hero-container {
+    margin: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 80px;
+}
+
+.hero-content h1 {
+    font-size:54px;
+    line-height:1.1;
+    margin-bottom:24px;
+    color:#0F172A;
+}
+.hero-content p{
+    font-size:18px;
+    line-height:1.8;
+    color:#64748B;
+    margin-bottom:36px;
+}
+.hero-btns {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 50px;
+}
+.primary-btn {
+    padding:14px 28px;
+    background:#2563EB;
+    color: white;
+    border-radius: 1rem;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    position: relative;
+    border: none;
+    transition: 0.3s ease;
+    z-index: 1;
+    overflow: hidden;
+}
+.primary-btn::before{
+    content:"";
+    position:absolute;
+    width:120px;
+    height:120px;
+    background:rgba(255,255,255,0.8);
+    filter:blur(20px);
+    border-radius:50%;
+    top:-40px;
+    left:-120px;
+    transition:none;
+    opacity:0;
+}
+.primary-btn:hover::before{
+    opacity:1;
+    animation:borderTravel 1.5s linear forwards;
+}
+.primary-btn:hover{
+
+    transform:
+    translateY(-4px)
+    scale(1.03);
+
+    box-shadow:
+    0 15px 30px rgba(37,99,235,0.3);
+}
+@keyframes rotateBorder{
+
+    from{
+
+        transform:rotate(0deg);
+    }
+
+    to{
+
+        transform:rotate(360deg);
+    }
+}
+.secondary-btn {
+    padding:14px 28px;
+    background: white;
+    border-radius: 1rem;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+
+.hero-img img {
+    width: 100%;
+    height: 475px;
+    border-radius: 24px;
+    object-fit: cover;
+    transition: all 0.3s ease-in;
+}
+.hero-img img:hover {
+    box-shadow:0 20px 40px rgba(1,1,1,1.08)
+}
+
+/* STATS section */
+
+.stats {
+    padding: 70px 5%;
+    background: #e1e8f0;
+}
+.stats-container {
+    display: grid;
+    grid-template-columns:repeat(4, 1fr);
+    gap: 20px;
+}
+.stat-card {
+    background: white;
+    text-align:center;
+    margin: 1rem;
+    padding: 30px;
+    border-radius: 1rem;
+    transition: all 0.3s ease;
+}
+.stat-card:hover {
+    box-shadow:0 10px 30px rgba(1,1,1,1.05);
+}
+.stat-card h2{
+    font-size: 30px;
+    color: #2563EB;
+    margin-bottom: 10px;
+}
+.stat-card p{
+    color:#64748B;
+    font-size:16px;
+}
+
+/* FACILITIES SECTION */
+
+.facilities {
+    padding: 5px 5% 70px 5%;
+    background: #f6f8fd;
+}
+
+.facility h1 {
+    padding: 40px 5%;
+    margin-top: 1rem;
+}
+
+.facilities-container {
+    display: grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap: 20px;
+}
+
+.facility-card {
+    background: white;
+    border-radius: 12px;
+    padding: 1rem;
+}
+
+.facility-card p {
+    color: #64748B;
+}
