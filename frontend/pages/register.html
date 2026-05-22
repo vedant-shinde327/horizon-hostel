@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="stylesheet" href="../css/register.css">
+</head>
+<body>
+<div id="navbar"></div>
+    <section class="register-section">
+
+        <div class="register-container">
+
+            <!-- LEFT SIDE -->
+
+            <div class="register-left">
+
+                <h1>
+
+                    Join Horizon Hostel
+
+                </h1>
+
+                <p>
+
+                    Create your student account to
+                    access hostel services, notices,
+                    mess updates, and more.
+
+                </p>
+
+            </div>
+
+            <!-- RIGHT SIDE -->
+
+            <div class="register-right">
+
+                <form 
+                action="http://localhost:3000/register"
+                method="POST"
+                class="register-form"
+                >
+
+                    <!-- FULL NAME -->
+
+                    <div class="form-group">
+
+                        <label for="fullName">
+
+                            Full Name
+
+                        </label>
+
+                        <input 
+                        type="text"
+                        id="fullName"
+                        name="fullName"
+                        placeholder="Enter your full name"
+                        minlength="3"
+                        maxlength="40"
+                        required
+                        >
+
+                    </div>
+
+                    <!-- MOBILE NUMBER -->
+
+                    <div class="form-group">
+
+                        <label for="mobileNo">
+
+                            Mobile Number
+
+                        </label>
+
+                        <input 
+                        type="tel"
+                        id="mobileNo"
+                        name="mobileNo"
+                        placeholder="Enter mobile number"
+                        pattern="[0-9]{10}"
+                        required
+                        >
+
+                    </div>
+
+                    <!-- EMAIL -->
+
+                    <div class="form-group">
+
+                        <label for="email">
+
+                            Email Address
+
+                        </label>
+
+                        <input 
+                        type="email"
+                        id="email"
+                        name="email"
+                        placeholder="Enter your email"
+                        required
+                        >
+
+                    </div>
+
+                    <!-- PASSWORD -->
+
+                    <div class="form-group">
+
+                        <label for="password">
+
+                            Password
+
+                        </label>
+
+                        <input 
+                        type="password"
+                        id="password"
+                        name="password"
+                        placeholder="Create password"
+                        minlength="6"
+                        required
+                        >
+
+                    </div>
+
+                    <!-- BUTTON -->
+
+                    <button 
+                    type="submit"
+                    class="register-btn"
+                    >
+
+                        Create Account
+
+                    </button>
+
+                    <!-- LOGIN LINK -->
+
+                    <p class="login-text">
+
+                        Already have an account?
+
+                        <a href="./login.html">
+
+                            Login
+
+                        </a>
+
+                    </p>
+                    
+                </form>
+
+            </div>
+
+        </div>
+
+    </section>
+<div id="footer"></div>
+</body>
+</html>
+
