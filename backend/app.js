@@ -3,6 +3,7 @@ import mongoose from "mongoose";
 import connectDB from "./config/db.js";
 import path from "path";
 import { fileURLToPath } from "url";
+import authRoutes from "./routes/auth.js";
 
 const app = express();
 
@@ -15,6 +16,8 @@ connectDB();
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+
+app.use("/", authRoutes);
 
 app.get("/", (req, res) => {
     res.send("sangita");
