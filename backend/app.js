@@ -38,7 +38,7 @@ app.get("/", (req, res) => {
 app.get("/test-session", (req, res) => {
   res.send(req.session.user);
 });
-
+    
 app.listen(3000, () => {
     console.log("Server running");
 });
