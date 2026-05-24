@@ -4,6 +4,7 @@ import connectDB from "./config/db.js";
 import path from "path";
 import { fileURLToPath } from "url";
 import authRoutes from "./routes/auth.js";
+import session from "express-session";
 
 const app = express();
 
@@ -17,10 +18,25 @@ connectDB();
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
+app.use(
+  session({
+    secret: "horizonSecretKey",
+    resave: false,
+    saveUninitialized: false,
+
+    cookie: {
+      maxAge: 1000 * 60 * 60 * 24,
+    },
+  }),
+);
+
 app.use("/", authRoutes);
 
 app.get("/", (req, res) => {
     res.send("sangita");
+});
+app.get("/test-session", (req, res) => {
+  res.send(req.session.user);
 });
 
 app.listen(3000, () => {
