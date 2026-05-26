@@ -68,12 +68,23 @@ router.post("/login", async (req, res) => {
             fullName: user.fullName,
             email: user.email,
         }
-        res.redirect("/dashboard.html");
+        res.redirect("/dashboard");
 
     } catch(err) {
         console.log(err);
         res.send("Login Failed");
     }
+});
+
+router.get("/logout", (req, res) => {
+    req.session.destroy((err) => {
+        if(err) {
+            console.log(err);
+            return res.send("logout failed");
+        }
+        res.clearCookie("connect.sid");
+        res.redirect("/");
+    });
 });
 
 export default router;  
