@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta 
+    name="viewport" 
+    content="width=device-width, initial-scale=1.0"
+    >
+    <title>Add Notice </title>
+    <link 
+    rel="stylesheet" 
+    href="./css/admin-notice.css"
+    >
+
+    <link 
+rel="stylesheet" 
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+/>
+</head>
+
+<body>
+
+    <div class="notice-container">
+
+        <form 
+        action="http://localhost:3000/add-notice"
+        method="POST"
+        class="notice-form"
+        >
+            <h1>
+                Create Notice
+            </h1>
+
+            <!-- TITLE -->
+
+            <div class="input-box">
+
+                <label>
+                    Notice Title
+                </label>
+
+                <input 
+                type="text"
+                name="title"
+                placeholder="Enter notice title"
+                required
+                >
+            </div>
+
+            <!-- DESCRIPTION -->
+
+            <div class="input-box">
+
+                <label>
+                    Description
+                </label>
+
+                <textarea 
+                name="description"
+                placeholder="Enter notice description"
+                required
+                ></textarea>
+
+            </div>
+
+            <!-- ICON -->
+
+            <div class="input-box">
+
+                <label>
+                    Font Awesome Icon
+                </label>
+
+                <input 
+                type="text"
+                name="icon"
+                placeholder="fa-solid fa-bell"
+                >
+            </div>
+
+            <!-- COLOR -->
+
+            <div class="input-box">
+                <label>
+                    Color Class
+                </label>
+
+                <select name="color">
+                    <option value="blue-bg">
+                        Blue
+                    </option>
+
+                    <option value="green-bg">
+                        Green
+                    </option>
+
+                    <option value="orange-bg">
+                         Orange
+                    </option>
+                </select>
+            </div>
+
+            <button type="submit">
+                Publish Notice
+            </button>
+        </form>
+    </div>
+</body>
+
+</html>
