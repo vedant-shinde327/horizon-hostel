@@ -7,6 +7,7 @@ import authRoutes from "./routes/auth.js";
 import session from "express-session";
 import Notice from "./models/notice.js";
 import isLoggedIn from "./middleware/isLoggedIn.js";
+import isLoggedOut from "./middleware/isLoggedOut.js";  
 
 const app = express();
 
@@ -43,27 +44,45 @@ app.use((req, res, next) => {
   next();
 });
 
-//home
+app.use((req, res, next) =>{
+  res.locals.user = req.session.user || null;
+
+  next();
+});
+
 app.use("/", authRoutes);
 
+//home
 app.get("/", (req, res) => {
-    res.render("index", {
-      user: req.session.user || null
-    });
+    res.render("index");
 });
-app.get("/test-session", (req, res) => {
-  res.send(req.session.user);
+
+//logged in 
+app.get("/login", isLoggedOut, (req, res) => {
+  res.sendFile(
+        path.join(
+            __dirname,
+            "../frontend/pages/login.html"
+        )
+    );
 });
+
+//register
+app.get("/register", isLoggedOut, (req, res) => {
+   res.sendFile(path.join(__dirname, "../frontend/pages/register.html"));
+})
 
 //dashboard route
 app.get("/dashboard", isLoggedIn, async (req, res) => {
   //check session
   const notices = await Notice.find();
   
-  res.render("dashboard", {
-    user:req.session.user,
-    notices
-  });
+  res.render("dashboard", {notices});
+});
+
+//profile section
+app.get("/dashboard/profile", isLoggedIn, (req, res) => {
+  res.render("profile");
 });
 
 //admin 
