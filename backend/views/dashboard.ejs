@@ -1,93 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
+<%- include("boilerplatecode/boilerPlateCode.ejs") %>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Student Dashboard</title>
+<%- include("partials/dashboard-header") %>
 
-    <link rel="stylesheet" href="./css/dashboard.css">
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Overpass:ital,wght@0,100..900;1,100..900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-        rel="stylesheet">
-
-    <!-- FONT AWESOME -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
-</head>
-
-<body>
     <div class="dashboard-container">
 
         <!-- SIDEBAR -->
 
-        <aside class="sidebar">
-
-            <!-- LOGO -->
-
-            <div class="sidebar-logo">
-                <h2> Horizon </h2>
-                <p>Hostel</p>
-            </div>
-
-            <!-- MENU -->
-
-            <nav class="sidebar-menu">
-                <a href="#" class="active">
-                    <i class="fa-solid fa-house"></i>
-                    <span>
-                        Dashboard
-                    </span>
-                </a>
-
-                <a href="#">
-                    <i class="fa-solid fa-user"></i>
-                    <span>
-                        Profile
-                    </span>
-                </a>
-
-                <a href="#">
-                    <i class="fa-solid fa-bell"></i>
-                    <span>
-                        Notices
-                    </span>
-                </a>
-
-                <a href="#">
-                    <i class="fa-solid fa-triangle-exclamation"></i>
-                    <span>
-                        Complaints
-                    </span>
-                </a>
-
-                <a href="#">
-                    <i class="fa-solid fa-utensils"></i>
-                    <span>
-                        Mess Menu
-                    </span>
-                </a>
-
-                <a href="#">
-                    <i class="fa-solid fa-calendar-check"></i>
-                    <span>
-                        Leave Requests
-                    </span>
-                </a>
-            </nav>
-
-            <!-- LOGOUT -->
-
-            <div class="logout-section">
-                <a href="/logout">
-                    <i class="fa-solid fa-right-from-bracket"></i>
-                    <span> Logout </span>
-                </a>
-            </div>
-
-        </aside>
+<%- include("partials/dashboard-sidebar") %>
 
         <!-- MAIN CONTENT -->
 
@@ -134,21 +53,6 @@
                         <h2>A-203</h2>
                         <p>
                             Room Number
-                        </p>
-                    </div>
-                </div>
-
-                <!-- CARD 2 -->
-
-                <div class="stat-card">
-                    <div class="stat-icon green">
-                        <i class="fa-solid fa-calendar-check"></i>
-                    </div>
-
-                    <div class="stat-info">
-                        <h2>98%</h2>
-                        <p>
-                            Attendance
                         </p>
                     </div>
                 </div>
@@ -249,6 +153,3 @@
                 </div>
         </main>
     </div>
-</body>
-
-</html>
