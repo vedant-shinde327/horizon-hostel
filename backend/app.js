@@ -5,6 +5,8 @@ import path from "path";
 import { fileURLToPath } from "url";
 import authRoutes from "./routes/auth.js";
 import session from "express-session";
+import Notice from "./models/notice.js";
+import isLoggedIn from "./middleware/isLoggedIn.js";
 
 const app = express();
 
@@ -14,6 +16,9 @@ const __dirname = path.dirname(__filename);
 app.use(express.static(path.join(__dirname, "../frontend")));
 
 connectDB();
+
+app.set("view engine", "ejs");
+app.use(express.static(path.join(__dirname, "../frontend")));
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -30,15 +35,50 @@ app.use(
   }),
 );
 
+app.use((req, res, next) => {
+  res.set(
+    "Cache-Control",
+    "no-store"
+  );
+  next();
+});
+
+//home
 app.use("/", authRoutes);
 
 app.get("/", (req, res) => {
-    res.send("sangita");
+    res.render("index", {
+      user: req.session.user || null
+    });
 });
 app.get("/test-session", (req, res) => {
   res.send(req.session.user);
 });
-    
+
+//dashboard route
+app.get("/dashboard", isLoggedIn, async (req, res) => {
+  //check session
+  const notices = await Notice.find();
+  
+  res.render("dashboard", {
+    user:req.session.user,
+    notices
+  });
+});
+
+//admin 
+app.post("/add-notice", async(req, res) => {
+  try {
+    const notice = new Notice(req.body);
+    await notice.save();
+
+    res.redirect("/dashboard");
+  } catch(err) {
+    console.log(err);
+    res.send("failed to add notice");
+  }
+})
+
 app.listen(3000, () => {
     console.log("Server running");
 });
