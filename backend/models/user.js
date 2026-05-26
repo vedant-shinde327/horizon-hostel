@@ -20,6 +20,22 @@ const userSchema = new mongoose.Schema({
     required: true,
     unique: true,
   },
+  roomNo: {
+    type: String,
+    default: "Not Assigned"
+  },
+  hostelBlock: {
+    type: String,
+    default: "A Block"
+  },
+  joinedAt: {
+    type: Date,
+    default: Date.now
+  },
+  status: {
+    type: String,
+    default: "Active"
+  }
 });
 
 const User = mongoose.model("User", userSchema);
