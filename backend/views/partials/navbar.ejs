@@ -1,0 +1,52 @@
+<nav class="navbar">
+
+    <div class="logo">
+        <img src="./assets/logo/logo h.png" alt="hozion Hostel logo">
+        <span>Horizon Hostel</span>
+    </div>
+
+    <ul class="nav-links">
+
+        <li>
+            <a href="/index.html">Home</a>
+        </li>
+
+        <li>
+            <a href="/mess.html">Mess Menu</a>
+        </li>
+
+        <li>
+            <a href="/support.html">Support Desk</a>
+        </li>
+
+        <li>
+            <a href="/announcements.html">Announcements</a>
+        </li>
+
+        <li>
+            <a href="/profile.html">Profile</a>
+        </li>
+    </ul>
+
+    <div class="nav-buttons">
+        <% if(!user) { %>
+             <a href="/login">
+                <button class="login-btn">Login</button>
+             </a>
+
+               <a href="/register">
+                <button class="login-btn">Register</button>
+               </a>
+
+                 <% } else { %>
+                    <a href="/dashboard">
+                        <button class="login-btn">Dashboard</button>
+                    </a>
+
+
+                     <a href="/logout">
+                        <button class="login-btn">Logout</button>
+                     </a>
+        <%} %>
+    </div>
+</nav>
