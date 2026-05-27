@@ -81,9 +81,9 @@ app.get("/dashboard", isLoggedIn, async (req, res) => {
 });
 
 //profile section
-app.get("/dashboard/profile", isLoggedIn, (req, res) => {
-  res.render("profile");
-});
+  // app.get("/dashboard/profile", isLoggedIn, (req, res) => {
+  //   res.render("profile");
+  // });
 
 //admin 
 app.post("/add-notice", async(req, res) => {
@@ -96,7 +96,7 @@ app.post("/add-notice", async(req, res) => {
     console.log(err);
     res.send("failed to add notice");
   }
-})
+});
 
 app.listen(3000, () => {
     console.log("Server running");
